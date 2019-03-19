@@ -1,0 +1,9 @@
+<ion-list class="bottom-form" [formGroup]="form">
+  <ion-item *ngFor="let item of items">
+    <ion-label *ngIf="item.key !== 'notes'">{{item.value}}</ion-label>
+    <ion-input *ngIf="item.key !== 'notes'" class="list-item" slot="end" [formControlName]="item.key"></ion-input>
+
+    <ion-label *ngIf="item.key === 'notes'" position="floating">{{item.value}}</ion-label>
+    <ion-textarea *ngIf="item.key === 'notes'" wrap="soft" [value]="form.controls.notes.value"></ion-textarea>
+  </ion-item>
+</ion-list>
